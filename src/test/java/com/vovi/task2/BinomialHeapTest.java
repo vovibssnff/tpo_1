@@ -56,7 +56,7 @@ public class BinomialHeapTest {
         heap.insert(5);
         heap.insert(20);
 
-        Node nodeToDecrease = heap.trees.get(0); // Assuming the node with value 5 is at the root
+        Node nodeToDecrease = heap.trees.get(0);
         heap.decrease_key(nodeToDecrease, 3);
 
         assertEquals(3, heap.get_min(), "get_min should return 3 after decrease_key");

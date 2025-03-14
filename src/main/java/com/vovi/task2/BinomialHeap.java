@@ -57,11 +57,11 @@ class BinomialHeap {
         BinomialHeap heap = new BinomialHeap();
         heap.trees = minNode.children;
         for (Node child : heap.trees) {
-            child.parent = null; // Reset parent pointers
+            child.parent = null;
         }
-        merge(heap); // Merge the children into the heap
-        _consolidate(); // Consolidate the heap after merging
-        _find_min(); // Update the min_node
+        merge(heap);
+        _consolidate();
+        _find_min();
         count -= 1;
         return minNode.value;
     }
@@ -69,8 +69,8 @@ class BinomialHeap {
     public void merge(BinomialHeap other_heap) {
         trees.addAll(other_heap.trees);
         count += other_heap.count;
-        _consolidate(); // Consolidate the heap after merging
-        _find_min(); // Update the min_node
+        _consolidate();
+        _find_min();
     }
 
     public void _find_min() {
@@ -88,7 +88,7 @@ class BinomialHeap {
         }
         node.value = new_value;
         _bubble_up(node);
-        _find_min(); // Update the min_node
+        _find_min();
     }
 
     public void delete_node(Node node) {

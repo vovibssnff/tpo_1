@@ -11,11 +11,11 @@ public class ArccosTest {
 
     @ParameterizedTest(name = "arccos({0})")
     @DisplayName("Check boundary values")
-    @ValueSource(doubles = {-0.9999, 0, 1}) // Test values close to boundaries
+    @ValueSource(doubles = {-0.9999, 0, 1})
     void checkBoundaryValues(double x) {
-        int terms = 10000; // Increase terms for better accuracy near boundaries
-        double expected = Math.acos(x); // Expected value using Math.acos
-        double actual = Arccos.calc(x, terms); // Actual value from our implementation
+        int terms = 10000;
+        double expected = Math.acos(x);
+        double actual = Arccos.calc(x, terms);
         assertEquals(expected, actual, 0.01, "arccos(" + x + ") should be " + expected);
     }
 
@@ -28,8 +28,8 @@ public class ArccosTest {
             "0.7071, 0.7854"
     })
     void checkIntermediateValues(double x, double expected) {
-        int terms = 100; // Number of terms in the Taylor series
-        double actual = Arccos.calc(x, terms); // Actual value from our implementation
+        int terms = 100;
+        double actual = Arccos.calc(x, terms);
         assertEquals(expected, actual, 0.0001, "arccos(" + x + ") should be " + expected);
     }
 
@@ -37,7 +37,7 @@ public class ArccosTest {
     @DisplayName("Check invalid inputs")
     @ValueSource(doubles = {-2, -1.1, 1.1, 2})
     void checkInvalidInputs(double x) {
-        int terms = 100; // Number of terms in the Taylor series
+        int terms = 100;
         assertThrows(IllegalArgumentException.class, () -> Arccos.calc(x, terms),
                 "arccos(" + x + ") should throw IllegalArgumentException");
     }
