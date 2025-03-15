@@ -46,8 +46,7 @@ public class ArccosTest {
     @DisplayName("Check invalid terms")
     @ValueSource(ints = {-1, -10})
     void checkInvalidTerms(int terms) {
-        double x = 0.5;
-        assertThrows(IllegalArgumentException.class, () -> Arccos.calc(x, terms),
-                "arccos(" + x + ") should throw IllegalArgumentException for invalid terms");
+        assertThrows(IllegalArgumentException.class, () -> Arccos.calc(1, terms),
+                "arccos(" + 1 + ") should throw IllegalArgumentException for invalid terms");
     }
 }
